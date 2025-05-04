@@ -89,114 +89,117 @@
     </header>
 <br><br><br><br><br>
 <div class="about-image-container">
-    <div class="content-container" id="mission">
-        <div class="content">
-            <h3>MISSION</h3>
-            <p style="text-align: center;">CLSU shall develop globally competitive, work-ready, socially-responsible and empowered human resources who value life-long learning; and to generate, disseminate, and apply knowledge and technologies for poverty alleviation, environmental protection, and sustainable development.</p>
-        </div>
+  <div class="content-container" id="mission">
+    <div class="content">
+      <h3>VISION</h3>
+      <p style="text-align: center;">
+        CLSU as a world-class National Research University for science and technology in agriculture and allied fields.
+      </p>
     </div>
-    <img src="img/about/about.png" alt="About Image" class="about-image">
-    <br>
-      </div>
-    <style> 
-      /* ===== Mission Section ===== */
+    
+    <div class="content">
+      <h3>MISSION</h3>
+      <p style="text-align: center;">
+        To generate, apply and disseminate knowledge and technologies for sustainable development in agriculture and allied fields.
+      </p>
+    </div>
+  </div>
 
-      .content-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 20px;
-        text-align: center;
-      }
-      
-      .content {
-        background-color: #ffffff;
-        padding: 30px 25px;
-        border-radius: 12px;
-        box-shadow: 0 0 40px #009639;
-        width: 100%;
-      }
-      
-      .content h3 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-        color: #222;
-      }
-      
-      .content p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #333;
-        margin: 0;
-      }
-      
-      
-      /* ===== About Image Section ===== */
-      
-      .about-image-container {
-        width: 100%;
-        overflow: hidden;
-        padding: 0;
-        margin: 0 auto;
-        text-align: center;
-      }
-      
-      .about-image {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
-      
-      
-      /* ===== Responsive Media Queries ===== */
-      
-      @media (max-width: 992px) {
-        .content {
-          padding: 25px 20px;
-        }
-      
-        .content h3 {
-          font-size: 1.75rem;
-        }
-      
-        .content p {
-          font-size: 1rem;
-        }
-      }
-      
-      @media (max-width: 768px) {
-        .content-container {
-          padding: 30px 15px;
-        }
-      
-        .content {
-          padding: 20px;
-        }
-      
-        .content h3 {
-          font-size: 1.5rem;
-        }
-      
-        .content p {
-          font-size: 0.95rem;
-        }
-      }
-      
-      @media (max-width: 480px) {
-        .content h3 {
-          font-size: 1.3rem;
-        }
-      
-        .content p {
-          font-size: 0.9rem;
-        }
-        .footer__copyright__text p {
-    font-size: 14px;
-    padding: 10px;
+  <img src="img/about/about.png" alt="About Image" class="about-image">
+</div>
+
+<style>
+  /* ===== Mission Section ===== */
+  .content-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .content {
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 40px #009639;
+    width: 45%;
+    box-sizing: border-box;
+  }
+
+  .content h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #222;
+  }
+
+  .content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
     margin: 0;
-    word-wrap: break-word;
-}
+  }
+
+  /* ===== About Image Section ===== */
+  .about-image-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ===== Responsive Media Queries ===== */
+  @media (max-width: 992px) {
+    .content {
+      padding: 25px 20px;
+    }
+
+    .content h3 {
+      font-size: 1.75rem;
+    }
+
+    .content p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content {
+      width: 100%;
+      padding: 20px;
+    }
+
+    .content h3 {
+      font-size: 1.5rem;
+    }
+
+    .content p {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .content h3 {
+      font-size: 1.3rem;
+    }
+
+    .content p {
+      font-size: 0.9rem;
+    }
 footer {
     flex-shrink: 0;
 }
