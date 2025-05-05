@@ -149,7 +149,7 @@
 		}
 	);
 
-	$.jPlayer.htmlEvent = [ // These HTML events are bubbled through to the jPlayer event, without any internal action.
+	$.jPlayer.phpEvent = [ // These HTML events are bubbled through to the jPlayer event, without any internal action.
 		"loadstart",
 		// "progress", // jPlayer uses internally before bubbling.
 		// "suspend", // jPlayer uses internally before bubbling.
@@ -334,8 +334,8 @@
 						'mozfullscreenchange',
 						'mozfullscreenerror'
 					],
-					// http://developer.apple.com/library/safari/#documentation/WebKit/Reference/ElementClassRef/Element/Element.html
-					// http://developer.apple.com/library/safari/#documentation/UserExperience/Reference/DocumentAdditionsReference/DocumentAdditions/DocumentAdditions.html
+					// http://developer.apple.com/library/safari/#documentation/WebKit/Reference/ElementClassRef/Element/Element.php
+					// http://developer.apple.com/library/safari/#documentation/UserExperience/Reference/DocumentAdditionsReference/DocumentAdditions/DocumentAdditions.php
 					webkit: [
 						'',
 						'webkitCurrentFullScreenElement',
@@ -344,8 +344,8 @@
 						'webkitfullscreenchange',
 						''
 					],
-					// http://developer.apple.com/library/safari/#documentation/AudioVideo/Reference/HTMLVideoElementClassReference/HTMLVideoElement/HTMLVideoElement.html
-					// https://developer.apple.com/library/safari/samplecode/HTML5VideoEventFlow/Listings/events_js.html#//apple_ref/doc/uid/DTS40010085-events_js-DontLinkElementID_5
+					// http://developer.apple.com/library/safari/#documentation/AudioVideo/Reference/HTMLVideoElementClassReference/HTMLVideoElement/HTMLVideoElement.php
+					// https://developer.apple.com/library/safari/samplecode/HTML5VideoEventFlow/Listings/events_js.php#//apple_ref/doc/uid/DTS40010085-events_js-DontLinkElementID_5
 					// Events: 'webkitbeginfullscreen' and 'webkitendfullscreen'
 					webkitVideo: [
 						'webkitSupportsFullscreen',
@@ -848,10 +848,10 @@
 			this.solutions = []; // Array based on solution string option. Order defines priority.
 			this.require = {}; // Which media types are required: video, audio.
 			
-			this.htmlElement = {}; // DOM elements created by jPlayer
-			this.html = {}; // In _init()'s this.desired code and setmedia(): Accessed via this[solution], where solution from this.solutions array.
-			this.html.audio = {};
-			this.html.video = {};
+			this.phpElement = {}; // DOM elements created by jPlayer
+			this.php = {}; // In _init()'s this.desired code and setmedia(): Accessed via this[solution], where solution from this.solutions array.
+			this.php.audio = {};
+			this.php.video = {};
 			this.aurora = {}; // In _init()'s this.desired code and setmedia(): Accessed via this[solution], where solution from this.solutions array.
 			this.aurora.formats = [];
 			this.aurora.properties = [];
@@ -989,14 +989,14 @@
 			this._restrictNativeVideoControls();
 
 			// Create the poster image.
-			this.htmlElement.poster = document.createElement('img');
-			this.htmlElement.poster.id = this.internal.poster.id;
-			this.htmlElement.poster.onload = function() { // Note that this did not work on Firefox 3.6: poster.addEventListener("onload", function() {}, false); Did not investigate x-browser.
+			this.phpElement.poster = document.createElement('img');
+			this.phpElement.poster.id = this.internal.poster.id;
+			this.phpElement.poster.onload = function() { // Note that this did not work on Firefox 3.6: poster.addEventListener("onload", function() {}, false); Did not investigate x-browser.
 				if(!self.status.video || self.status.waitForPlay) {
 					self.internal.poster.jq.show();
 				}
 			};
-			this.element.append(this.htmlElement.poster);
+			this.element.append(this.phpElement.poster);
 			this.internal.poster.jq = $("#" + this.internal.poster.id);
 			this.internal.poster.jq.css({'width': this.status.width, 'height': this.status.height});
 			this.internal.poster.jq.hide();
@@ -1005,30 +1005,30 @@
 			});
 			
 			// Generate the required media elements
-			this.html.audio.available = false;
+			this.php.audio.available = false;
 			if(this.require.audio) { // If a supplied format is audio
-				this.htmlElement.audio = document.createElement('audio');
-				this.htmlElement.audio.id = this.internal.audio.id;
-				this.html.audio.available = !!this.htmlElement.audio.canPlayType && this._testCanPlayType(this.htmlElement.audio); // Test is for IE9 on Win Server 2008.
+				this.phpElement.audio = document.createElement('audio');
+				this.phpElement.audio.id = this.internal.audio.id;
+				this.php.audio.available = !!this.phpElement.audio.canPlayType && this._testCanPlayType(this.phpElement.audio); // Test is for IE9 on Win Server 2008.
 			}
-			this.html.video.available = false;
+			this.php.video.available = false;
 			if(this.require.video) { // If a supplied format is video
-				this.htmlElement.video = document.createElement('video');
-				this.htmlElement.video.id = this.internal.video.id;
-				this.html.video.available = !!this.htmlElement.video.canPlayType && this._testCanPlayType(this.htmlElement.video); // Test is for IE9 on Win Server 2008.
+				this.phpElement.video = document.createElement('video');
+				this.phpElement.video.id = this.internal.video.id;
+				this.php.video.available = !!this.phpElement.video.canPlayType && this._testCanPlayType(this.phpElement.video); // Test is for IE9 on Win Server 2008.
 			}
 
 			this.flash.available = this._checkForFlash(10.1);
 
-			this.html.canPlay = {};
+			this.php.canPlay = {};
 			this.aurora.canPlay = {};
 			this.flash.canPlay = {};
 			$.each(this.formats, function(priority, format) {
-				self.html.canPlay[format] = self.html[self.format[format].media].available && "" !== self.htmlElement[self.format[format].media].canPlayType(self.format[format].codec);
+				self.php.canPlay[format] = self.php[self.format[format].media].available && "" !== self.phpElement[self.format[format].media].canPlayType(self.format[format].codec);
 				self.aurora.canPlay[format] = ($.inArray(format, self.aurora.formats) > -1);
 				self.flash.canPlay[format] = self.format[format].flashCanPlay && self.flash.available;
 			});
-			this.html.desired = false;
+			this.php.desired = false;
 			this.aurora.desired = false;
 			this.flash.desired = false;
 			$.each(this.solutions, function(solutionPriority, solution) {
@@ -1050,16 +1050,16 @@
 				}
 			});
 			// This is what jPlayer will support, based on solution and supplied.
-			this.html.support = {};
+			this.php.support = {};
 			this.aurora.support = {};
 			this.flash.support = {};
 			$.each(this.formats, function(priority, format) {
-				self.html.support[format] = self.html.canPlay[format] && self.html.desired;
+				self.php.support[format] = self.php.canPlay[format] && self.php.desired;
 				self.aurora.support[format] = self.aurora.canPlay[format] && self.aurora.desired;
 				self.flash.support[format] = self.flash.canPlay[format] && self.flash.desired;
 			});
 			// If jPlayer is supporting any format in a solution, then the solution is used.
-			this.html.used = false;
+			this.php.used = false;
 			this.aurora.used = false;
 			this.flash.used = false;
 			$.each(this.solutions, function(solutionPriority, solution) {
@@ -1079,7 +1079,7 @@
 			this._cssSelectorAncestor(this.options.cssSelectorAncestor);
 			
 			// If neither html nor aurora nor flash are being used by this browser, then media playback is not possible. Trigger an error event.
-			if(!(this.html.used || this.aurora.used || this.flash.used)) {
+			if(!(this.php.used || this.aurora.used || this.flash.used)) {
 				this._error( {
 					type: $.jPlayer.error.NO_SOLUTION, 
 					context: "{solution:'" + this.options.solution + "', supplied:'" + this.options.supplied + "'}",
@@ -1145,7 +1145,7 @@
 			}
 
 			// Setup playbackRate ability before using _addHtmlEventListeners()
-			if(this.html.used && !this.flash.used) { // If only HTML
+			if(this.php.used && !this.flash.used) { // If only HTML
 				// Using the audio element capabilities for playbackRate. ie., Assuming video element is the same.
 				this.status.playbackRateEnabled = this._testPlaybackRate('audio');
 			} else {
@@ -1155,19 +1155,19 @@
 			this._updatePlaybackRate();
 
 			// Add the HTML solution if being used.
-			if(this.html.used) {
+			if(this.php.used) {
 
 				// The HTML Audio handlers
-				if(this.html.audio.available) {
-					this._addHtmlEventListeners(this.htmlElement.audio, this.html.audio);
-					this.element.append(this.htmlElement.audio);
+				if(this.php.audio.available) {
+					this._addHtmlEventListeners(this.phpElement.audio, this.php.audio);
+					this.element.append(this.phpElement.audio);
 					this.internal.audio.jq = $("#" + this.internal.audio.id);
 				}
 
 				// The HTML Video handlers
-				if(this.html.video.available) {
-					this._addHtmlEventListeners(this.htmlElement.video, this.html.video);
-					this.element.append(this.htmlElement.video);
+				if(this.php.video.available) {
+					this._addHtmlEventListeners(this.phpElement.video, this.php.video);
+					this.element.append(this.phpElement.video);
 					this.internal.video.jq = $("#" + this.internal.video.id);
 					if(this.status.nativeVideoControls) {
 						this.internal.video.jq.css({'width': this.status.width, 'height': this.status.height});
@@ -1190,7 +1190,7 @@
 				this._emulateHtmlBridge();
 			}
 
-			if((this.html.used || this.aurora.used) && !this.flash.used) { // If only HTML, then emulate flash ready() call after 100ms.
+			if((this.php.used || this.aurora.used) && !this.flash.used) { // If only HTML, then emulate flash ready() call after 100ms.
 				setTimeout( function() {
 					self.internal.ready = true;
 					self.version.flash = "n/a";
@@ -1318,9 +1318,9 @@
 			}
 		},
 		_updateNativeVideoControls: function() {
-			if(this.html.video.available && this.html.used) {
+			if(this.php.video.available && this.php.used) {
 				// Turn the HTML Video controls on/off
-				this.htmlElement.video.controls = this.status.nativeVideoControls;
+				this.phpElement.video.controls = this.status.nativeVideoControls;
 				// Show/hide the jPlayer GUI.
 				this._updateAutohide();
 				// For when option changed. The poster image is not updated, as it is dealt with in setMedia(). Acceptable degradation since seriously doubt these options will change on the fly. Can again review later.
@@ -1454,9 +1454,9 @@
 					// Order of the next few commands are important. Change the time and then pause.
 					// Solves a bug in Firefox, where issuing pause 1st causes the media to play from the start. ie., The pause is ignored.
 					if(!$.jPlayer.browser.webkit) { // Chrome crashes if you do this in conjunction with a setMedia command in an ended event handler. ie., The playlist demo.
-						self.htmlElement.media.currentTime = 0; // Safari does not care about this command. ie., It works with or without this line. (Both Safari and Chrome are Webkit.)
+						self.phpElement.media.currentTime = 0; // Safari does not care about this command. ie., It works with or without this line. (Both Safari and Chrome are Webkit.)
 					}
-					self.htmlElement.media.pause(); // Pause otherwise a click on the progress bar will play from that point, when it shouldn't, since it stopped playback.
+					self.phpElement.media.pause(); // Pause otherwise a click on the progress bar will play from that point, when it shouldn't, since it stopped playback.
 					self._updateButtons(false);
 					self._getHtmlStatus(mediaElement, true); // With override true. Otherwise Chrome leaves progress at full.
 					self._updateInterface();
@@ -1468,7 +1468,7 @@
 					self._updateButtons(false);
 					self._seeked();
 					if(self.status.srcSet) { // Deals with case of clearMedia() causing an error event.
-						clearTimeout(self.internal.htmlDlyCmdId); // Clears any delayed commands used in the HTML solution.
+						clearTimeout(self.internal.phpDlyCmdId); // Clears any delayed commands used in the HTML solution.
 						self.status.waitForLoad = true; // Allows the load operation to try again.
 						self.status.waitForPlay = true; // Reset since a play was captured.
 						if(self.status.video && !self.status.nativeVideoControls) {
@@ -1490,7 +1490,7 @@
 				}
 			}, false);
 			// Create all the other event listeners that bubble up to a jPlayer event from html, without being used by jPlayer.
-			$.each($.jPlayer.htmlEvent, function(i, eventType) {
+			$.each($.jPlayer.phpEvent, function(i, eventType) {
 				mediaElement.addEventListener(this, function() {
 					if(entity.gate) {
 						self._trigger($.jPlayer.event[eventType]);
@@ -1651,7 +1651,7 @@
 			event.jPlayer.version = $.extend({}, this.version);
 			event.jPlayer.options = $.extend(true, {}, this.options); // Deep copy
 			event.jPlayer.status = $.extend(true, {}, this.status); // Deep copy
-			event.jPlayer.html = $.extend(true, {}, this.html); // Deep copy
+			event.jPlayer.php = $.extend(true, {}, this.php); // Deep copy
 			event.jPlayer.aurora = $.extend(true, {}, this.aurora); // Deep copy
 			event.jPlayer.flash = $.extend(true, {}, this.flash); // Deep copy
 			if(error) {
@@ -1905,13 +1905,13 @@
 			this.removeStateClass('seeking');
 		},
 		_resetGate: function() {
-			this.html.audio.gate = false;
-			this.html.video.gate = false;
+			this.php.audio.gate = false;
+			this.php.video.gate = false;
 			this.aurora.gate = false;
 			this.flash.gate = false;
 		},
 		_resetActive: function() {
-			this.html.active = false;
+			this.php.active = false;
 			this.aurora.active = false;
 			this.flash.active = false;
 		},
@@ -1952,7 +1952,7 @@
 
 			var	self = this,
 				supported = false,
-				posterChanged = this.status.media.poster !== media.poster; // Compare before reset. Important for OSX Safari as this.htmlElement.poster.src is absolute, even if original poster URL was relative.
+				posterChanged = this.status.media.poster !== media.poster; // Compare before reset. Important for OSX Safari as this.phpElement.poster.src is absolute, even if original poster URL was relative.
 
 			this._resetMedia();
 			this._resetGate();
@@ -1975,9 +1975,9 @@
 
 						if(isVideo) {
 							if(isHtml) {
-								self.html.video.gate = true;
+								self.php.video.gate = true;
 								self._html_setVideo(media);
-								self.html.active = true;
+								self.php.active = true;
 							} else {
 								self.flash.gate = true;
 								self._flash_setVideo(media);
@@ -1989,9 +1989,9 @@
 							self.status.video = true;
 						} else {
 							if(isHtml) {
-								self.html.audio.gate = true;
+								self.php.audio.gate = true;
 								self._html_setAudio(media);
-								self.html.active = true;
+								self.php.active = true;
 
 								// Setup the Android Fix - Only for HTML audio.
 								if($.jPlayer.platform.android) {
@@ -2022,13 +2022,13 @@
 			});
 
 			if(supported) {
-				if(!(this.status.nativeVideoControls && this.html.video.gate)) {
+				if(!(this.status.nativeVideoControls && this.php.video.gate)) {
 					// Set poster IMG if native video controls are not being used
 					// Note: With IE the IMG onload event occurs immediately when cached.
 					// Note: Poster hidden by default in _resetMedia()
 					if(this._validString(media.poster)) {
 						if(posterChanged) { // Since some browsers do not generate img onload event.
-							this.htmlElement.poster.src = media.poster;
+							this.phpElement.poster.src = media.poster;
 						} else {
 							this.internal.poster.jq.show();
 						}
@@ -2036,13 +2036,13 @@
 				}
 				if(typeof media.title === 'string') {
 					if(this.css.jq.title.length) {
-						this.css.jq.title.html(media.title);
+						this.css.jq.title.php(media.title);
 					}
-					if(this.htmlElement.audio) {
-						this.htmlElement.audio.setAttribute('title', media.title);
+					if(this.phpElement.audio) {
+						this.phpElement.audio.setAttribute('title', media.title);
 					}
-					if(this.htmlElement.video) {
-						this.htmlElement.video.setAttribute('title', media.title);
+					if(this.phpElement.video) {
+						this.phpElement.video.setAttribute('title', media.title);
 					}
 				}
 				this.status.srcSet = true;
@@ -2067,9 +2067,9 @@
 			this._seeked();
 			this.internal.poster.jq.hide();
 
-			clearTimeout(this.internal.htmlDlyCmdId);
+			clearTimeout(this.internal.phpDlyCmdId);
 
-			if(this.html.active) {
+			if(this.php.active) {
 				this._html_resetMedia();
 			} else if(this.aurora.active) {
 				this._aurora_resetMedia();
@@ -2080,7 +2080,7 @@
 		clearMedia: function() {
 			this._resetMedia();
 
-			if(this.html.active) {
+			if(this.php.active) {
 				this._html_clearMedia();
 			} else if(this.aurora.active) {
 				this._aurora_clearMedia();
@@ -2093,7 +2093,7 @@
 		},
 		load: function() {
 			if(this.status.srcSet) {
-				if(this.html.active) {
+				if(this.php.active) {
 					this._html_load();
 				} else if(this.aurora.active) {
 					this._aurora_load();
@@ -2117,7 +2117,7 @@
 				time = (typeof time === "number") ? time : NaN; // Remove jQuery event from click handler
 				if(this.status.srcSet) {
 					this.focus();
-					if(this.html.active) {
+					if(this.php.active) {
 						this._html_play(time);
 					} else if(this.aurora.active) {
 						this._aurora_play(time);
@@ -2135,7 +2135,7 @@
 		pause: function(time) {
 			time = (typeof time === "number") ? time : NaN; // Remove jQuery event from click handler
 			if(this.status.srcSet) {
-				if(this.html.active) {
+				if(this.php.active) {
 					this._html_pause(time);
 				} else if(this.aurora.active) {
 					this._aurora_pause(time);
@@ -2176,7 +2176,7 @@
 		},
 		stop: function() {
 			if(this.status.srcSet) {
-				if(this.html.active) {
+				if(this.php.active) {
 					this._html_pause(0);
 				} else if(this.aurora.active) {
 					this._aurora_pause(0);
@@ -2190,7 +2190,7 @@
 		playHead: function(p) {
 			p = this._limitValue(p, 0, 100);
 			if(this.status.srcSet) {
-				if(this.html.active) {
+				if(this.php.active) {
 					this._html_playHead(p);
 				} else if(this.aurora.active) {
 					this._aurora_playHead(p);
@@ -2212,7 +2212,7 @@
 		},
 		mutedWorker: function(muted) {
 			this.options.muted = muted;
-			if(this.html.used) {
+			if(this.php.used) {
 				this._html_setProperty('muted', muted);
 			}
 			if(this.aurora.used) {
@@ -2223,7 +2223,7 @@
 			}
 
 			// The HTML solution generates this event from the media element itself.
-			if(!this.html.video.gate && !this.html.audio.gate) {
+			if(!this.php.video.gate && !this.php.audio.gate) {
 				this._updateMute(muted);
 				this._updateVolume(this.options.volume);
 				this._trigger($.jPlayer.event.volumechange);
@@ -2277,7 +2277,7 @@
 			v = this._limitValue(v, 0, 1);
 			this.options.volume = v;
 
-			if(this.html.used) {
+			if(this.php.used) {
 				this._html_setProperty('volume', v);
 			}
 			if(this.aurora.used) {
@@ -2288,7 +2288,7 @@
 			}
 
 			// The HTML solution generates this event from the media element itself.
-			if(!this.html.video.gate && !this.html.audio.gate) {
+			if(!this.php.video.gate && !this.php.audio.gate) {
 				this._updateVolume(v);
 				this._trigger($.jPlayer.event.volumechange);
 			}
@@ -2596,14 +2596,14 @@
 					break;
 				case "playbackRate" :
 					this.options[key] = value = this._limitValue(value, this.options.minPlaybackRate, this.options.maxPlaybackRate);
-					if(this.html.used) {
+					if(this.php.used) {
 						this._html_setProperty('playbackRate', value);
 					}
 					this._updatePlaybackRate();
 					break;
 				case "defaultPlaybackRate" :
 					this.options[key] = value = this._limitValue(value, this.options.minPlaybackRate, this.options.maxPlaybackRate);
-					if(this.html.used) {
+					if(this.php.used) {
 						this._html_setProperty('defaultPlaybackRate', value);
 					}
 					this._updatePlaybackRate();
@@ -2760,7 +2760,7 @@
 			this.internal.poster.jq.css({'width': this.status.width, 'height': this.status.height});
 
 			// Video html or flash resized if necessary at this time, or if native video controls being used.
-			if(!this.status.waitForPlay && this.html.active && this.status.video || this.html.video.available && this.html.used && this.status.nativeVideoControls) {
+			if(!this.status.waitForPlay && this.php.active && this.status.video || this.php.video.available && this.php.used && this.status.nativeVideoControls) {
 				this.internal.video.jq.css({'width': this.status.width, 'height': this.status.height});
 			}
 			else if(!this.status.waitForPlay && this.flash.active && this.status.video) {
@@ -2874,7 +2874,7 @@
 
 			// This method needs the video element. For iOS and Android.
 			if(fs.used.webkitVideo) {
-				e = this.htmlElement.video;
+				e = this.phpElement.video;
 			}
 
 			if(fs.api.fullscreenEnabled) {
@@ -2888,7 +2888,7 @@
 
 			// This method needs the video element. For iOS and Android.
 			if(fs.used.webkitVideo) {
-				e = this.htmlElement.video;
+				e = this.phpElement.video;
 			}
 
 			if(fs.api.fullscreenEnabled) {
@@ -2897,7 +2897,7 @@
 		},
 		_html_initMedia: function(media) {
 			// Remove any existing track elements
-			var $media = $(this.htmlElement.media).empty();
+			var $media = $(this.phpElement.media).empty();
 
 			// Create any track elements given with the media, as an Array of track Objects.
 			$.each(media.track || [], function(i,v) {
@@ -2912,7 +2912,7 @@
 				$media.append(track);
 			});
 
-			this.htmlElement.media.src = this.status.src;
+			this.phpElement.media.src = this.status.src;
 
 			if(this.options.preload !== 'none') {
 				this._html_load(); // See function for comments
@@ -2923,7 +2923,7 @@
 			var self = this;
 			// Always finds a format due to checks in setMedia()
 			$.each(this.formats, function(priority, format) {
-				if(self.html.support[format] && media[format]) {
+				if(self.php.support[format] && media[format]) {
 					self.status.src = media[format];
 					self.status.format[format] = true;
 					self.status.formatType = format;
@@ -2933,31 +2933,31 @@
 		},
 		_html_setAudio: function(media) {
 			this._html_setFormat(media);
-			this.htmlElement.media = this.htmlElement.audio;
+			this.phpElement.media = this.phpElement.audio;
 			this._html_initMedia(media);
 		},
 		_html_setVideo: function(media) {
 			this._html_setFormat(media);
 			if(this.status.nativeVideoControls) {
-				this.htmlElement.video.poster = this._validString(media.poster) ? media.poster : "";
+				this.phpElement.video.poster = this._validString(media.poster) ? media.poster : "";
 			}
-			this.htmlElement.media = this.htmlElement.video;
+			this.phpElement.media = this.phpElement.video;
 			this._html_initMedia(media);
 		},
 		_html_resetMedia: function() {
-			if(this.htmlElement.media) {
-				if(this.htmlElement.media.id === this.internal.video.id && !this.status.nativeVideoControls) {
+			if(this.phpElement.media) {
+				if(this.phpElement.media.id === this.internal.video.id && !this.status.nativeVideoControls) {
 					this.internal.video.jq.css({'width':'0px', 'height':'0px'});
 				}
-				this.htmlElement.media.pause();
+				this.phpElement.media.pause();
 			}
 		},
 		_html_clearMedia: function() {
-			if(this.htmlElement.media) {
-				this.htmlElement.media.src = "about:blank";
+			if(this.phpElement.media) {
+				this.phpElement.media.src = "about:blank";
 				// The following load() is only required for Firefox 3.6 (PowerMacs).
 				// Recent HTMl5 browsers only require the src change. Due to changes in W3C spec and load() effect.
-				this.htmlElement.media.load(); // Stops an old, "in progress" download from continuing the download. Triggers the loadstart, error and emptied events, due to the empty src. Also an abort event if a download was in progress.
+				this.phpElement.media.load(); // Stops an old, "in progress" download from continuing the download. Triggers the loadstart, error and emptied events, due to the empty src. Also an abort event if a download was in progress.
 			}
 		},
 		_html_load: function() {
@@ -2966,13 +2966,13 @@
 			// This command should be removed and actually causes minor undesirable effects on some browsers. Such as loading the whole file and not only the metadata.
 			if(this.status.waitForLoad) {
 				this.status.waitForLoad = false;
-				this.htmlElement.media.load();
+				this.phpElement.media.load();
 			}
-			clearTimeout(this.internal.htmlDlyCmdId);
+			clearTimeout(this.internal.phpDlyCmdId);
 		},
 		_html_play: function(time) {
 			var self = this,
-				media = this.htmlElement.media;
+				media = this.phpElement.media;
 
 			this.androidFix.pause = false; // Cancel the pause fix.
 
@@ -3000,7 +3000,7 @@
 						throw 1;
 					}
 				} catch(err) {
-					this.internal.htmlDlyCmdId = setTimeout(function() {
+					this.internal.phpDlyCmdId = setTimeout(function() {
 						self.play(time);
 					}, 250);
 					return; // Cancel execution and wait for the delayed command.
@@ -3012,14 +3012,14 @@
 		},
 		_html_pause: function(time) {
 			var self = this,
-				media = this.htmlElement.media;
+				media = this.phpElement.media;
 
 			this.androidFix.play = false; // Cancel the play fix.
 
 			if(time > 0) { // We do not want the stop() command, which does pause(0), causing a load operation.
 				this._html_load(); // Loads if required and clears any delayed commands.
 			} else {
-				clearTimeout(this.internal.htmlDlyCmdId);
+				clearTimeout(this.internal.phpDlyCmdId);
 			}
 
 			// Order of these commands is important for Safari (Win) and IE9. Pause then change currentTime.
@@ -3038,7 +3038,7 @@
 						throw 1;
 					}
 				} catch(err) {
-					this.internal.htmlDlyCmdId = setTimeout(function() {
+					this.internal.phpDlyCmdId = setTimeout(function() {
 						self.pause(time);
 					}, 250);
 					return; // Cancel execution and wait for the delayed command.
@@ -3050,7 +3050,7 @@
 		},
 		_html_playHead: function(percent) {
 			var self = this,
-				media = this.htmlElement.media;
+				media = this.phpElement.media;
 
 			this._html_load(); // Loads if required and clears any delayed commands.
 
@@ -3065,7 +3065,7 @@
 					throw "e";
 				}
 			} catch(err) {
-				this.internal.htmlDlyCmdId = setTimeout(function() {
+				this.internal.phpDlyCmdId = setTimeout(function() {
 					self.playHead(percent);
 				}, 250);
 				return; // Cancel execution and wait for the delayed command.
@@ -3087,11 +3087,11 @@
 			}
 		},
 		_html_setProperty: function(property, value) {
-			if(this.html.audio.available) {
-				this.htmlElement.audio[property] = value;
+			if(this.php.audio.available) {
+				this.phpElement.audio[property] = value;
 			}
-			if(this.html.video.available) {
-				this.htmlElement.video[property] = value;
+			if(this.php.video.available) {
+				this.phpElement.video[property] = value;
 			}
 		},
 		_aurora_setAudio: function(media) {

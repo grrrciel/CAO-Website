@@ -2075,8 +2075,8 @@
             };
             self.getContentSize = function () {
               return {
-                w: Math.max(self.iframe.html.scrollWidth, self.iframe.body.scrollWidth),
-                h: Math.max(self.iframe.html.scrollHeight, self.iframe.body.scrollHeight)
+                w: Math.max(self.iframe.php.scrollWidth, self.iframe.body.scrollWidth),
+                h: Math.max(self.iframe.php.scrollHeight, self.iframe.body.scrollHeight)
               };
             };
             self.docscroll = $(self.iframe.body);

@@ -64,10 +64,10 @@
     {% endif %}
   {% endif %}
 
-  {% include analytics.html %}
+  {% include analytics.php %}
 
   {% if page.buildtool %}
-    {% include build-tool.html %}
+    {% include build-tool.php %}
   {% endif %}
 
   {% if site.url == 'local' %}

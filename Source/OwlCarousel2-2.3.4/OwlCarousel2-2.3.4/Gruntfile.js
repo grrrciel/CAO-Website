@@ -147,7 +147,7 @@ module.exports = function(grunt) {
 				options: {
 					timeout: 10000
 				},
-				dist: [ 'test/index.html' ]
+				dist: [ 'test/index.php' ]
 			},
 
 			jscs: {
@@ -271,7 +271,7 @@ module.exports = function(grunt) {
 					tasks: [ 'assemble' ]
 				},
 				test: {
-					files: [ 'test/*.html', 'test/unit/*.js' ],
+					files: [ 'test/*.php', 'test/unit/*.js' ],
 					tasks: [ 'qunit:dist' ]
 				}
 			},

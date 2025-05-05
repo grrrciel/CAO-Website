@@ -184,4 +184,4 @@ Related projects
 
 ###### Licensed under the MIT License, http://www.opensource.org/licenses/mit-license.php
 
-###### Images used for zoom icons have derived from OLPC interface, http://laptop.org/8.2.0/manual/Browse_ChangingView.html
+###### Images used for zoom icons have derived from OLPC interface, http://laptop.org/8.2.0/manual/Browse_ChangingView.php

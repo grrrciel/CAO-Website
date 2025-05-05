@@ -5,7 +5,7 @@
  * Copyright (c) 2009 - 2012 Happyworm Ltd
  * Dual licensed under the MIT and GPL licenses.
  *  - http://www.opensource.org/licenses/mit-license.php
- *  - http://www.gnu.org/copyleft/gpl.html
+ *  - http://www.gnu.org/copyleft/gpl.php
  *
  * Version: 1.0.1 (jPlayer 2.1.0+)
  * Date: 30th May 2011
@@ -89,8 +89,8 @@ CirclePlayer.prototype = {
 		this.player.jPlayer(this.options);
 
 		this.player.bind($.jPlayer.event.ready + this.eventNamespace, function(event) {
-			if(event.jPlayer.html.used && event.jPlayer.html.audio.available) {
-				self.audio = $(this).data("jPlayer").htmlElement.audio;
+			if(event.jPlayer.php.used && event.jPlayer.php.audio.available) {
+				self.audio = $(this).data("jPlayer").phpElement.audio;
 			}
 			$(this).jPlayer("setMedia", self.media);
 			self._initCircleControl();

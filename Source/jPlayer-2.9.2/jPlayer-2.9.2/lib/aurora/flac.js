@@ -684,7 +684,7 @@ var FLACDemuxer = AV.Demuxer.extend(function() {
                         break;
 
                 case VORBIS_COMMENT:
-                    // see http://www.xiph.org/vorbis/doc/v-comment.html
+                    // see http://www.xiph.org/vorbis/doc/v-comment.php
                     this.metadata || (this.metadata = {});
                     var len = stream.readUInt32(true);
                     

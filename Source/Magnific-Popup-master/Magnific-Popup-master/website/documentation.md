@@ -8,7 +8,7 @@ description: The complete guide on how to use Magnific Popup - the open source r
 
 addjs: true
 
-canonical_url: http://dimsemenov.com/plugins/magnific-popup/documentation.html
+canonical_url: http://dimsemenov.com/plugins/magnific-popup/documentation.php
 
 buildtool: true
 
@@ -16,7 +16,7 @@ buildtool: true
 
 <div id="documentation-intro">
   <h1><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific Popup</a> Documentation</h1>
-  <p><a href="https://github.com/dimsemenov/Magnific-Popup/">Project on GitHub</a> &middot; <a href="#mfp-build-tool" class="mfp-build-tool-link">Build tool</a> &middot; <a href="http://twitter.com/dimsemenov">Twitter of developer</a> &middot; <a href="http://dimsemenov.com/subscribe.html">Newsletter of developer</a></p>
+  <p><a href="https://github.com/dimsemenov/Magnific-Popup/">Project on GitHub</a> &middot; <a href="#mfp-build-tool" class="mfp-build-tool-link">Build tool</a> &middot; <a href="http://twitter.com/dimsemenov">Twitter of developer</a> &middot; <a href="http://dimsemenov.com/subscribe.php">Newsletter of developer</a></p>
 </div>
 
 
@@ -320,7 +320,7 @@ To create popup from inline element you need to:
 <a href="#test-popup" class="open-popup-link">Show inline popup</a>
 
 <!-- Or like so: -->
-<a href="mobile-friendly-page.html" data-mfp-src="#test-popup" class="open-popup-link">Show inline popup</a>
+<a href="mobile-friendly-page.php" data-mfp-src="#test-popup" class="open-popup-link">Show inline popup</a>
 {% endhighlight %}
 
 4) Initialize script.
@@ -380,7 +380,7 @@ To create such type of popup, first of define the path to the file that you wish
 **Important note!** The contents of the file that you load is already a popup itself, so there must be **only one root element**.
 
 {% highlight html %}
-<a href="path-to-file.html" class="ajax-popup-link">Show inline popup</a>
+<a href="path-to-file.php" class="ajax-popup-link">Show inline popup</a>
 {% endhighlight %}
 
 {% highlight javascript %}
@@ -1205,7 +1205,7 @@ Refer to [this discussion on GitHub](https://github.com/dimsemenov/Magnific-Popu
 Improve this documentation page (simply submit commit <a href="https://github.com/dimsemenov/Magnific-Popup/edit/master/website/documentation.md">via GitHub</a>). Any improvements, including your own CodePen examples are very welcome. And, lastly, don't forget to star the script on GitHub:
 
 <div>
-  <iframe src="http://ghbtns.com/github-btn.html?user=dimsemenov&amp;repo=magnific-popup&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30">&nbsp;</iframe>
+  <iframe src="http://ghbtns.com/github-btn.php?user=dimsemenov&amp;repo=magnific-popup&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30">&nbsp;</iframe>
 </div>
 
 <h2>Keep updated</h2>

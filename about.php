@@ -41,10 +41,10 @@
 <!-- Logo Container -->
 <div class="header__logos">
     <div class="header__logo">
-        <a href="./index.html"><img src="img/clsulogo.png" alt="CLSULogo"></a>
+        <a href="./index.php"><img src="img/clsulogo.png" alt="CLSULogo"></a>
     </div>
     <div class="header__logo">
-        <a href="./index.html"><img src="img/logo.png" alt="MainLogo"></a>
+        <a href="./index.php"><img src="img/logo.png" alt="MainLogo"></a>
     </div>
 </div>
 
@@ -53,23 +53,23 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul class="d-flex justify-content-center">
-                                <li><a href="./index.html">Home</a></li>
+                                <li><a href="./index.php">Home</a></li>
                                 <li style="text-align: center;"><a href="#">Performing Groups</a>
                                     <ul class="dropdown">
                             
-                                        <li><a href="./band.html">CLSU Band</a></li>
-                                        <li><a href="./bithay.html">CLSU Bithay</a></li>
-                                        <li><a href="./combo.html">CLSU Combo</a></li>
-                                        <li><a href="./maestro.html">CLSU Maestro</a></li>
-                                        <li><a href="./pigura.html">CLSU Pigura</a></li>
+                                        <li><a href="./band.php">CLSU Band</a></li>
+                                        <li><a href="./bithay.php">CLSU Bithay</a></li>
+                                        <li><a href="./combo.php">CLSU Combo</a></li>
+                                        <li><a href="./maestro.php">CLSU Maestro</a></li>
+                                        <li><a href="./pigura.php">CLSU Pigura</a></li>
                                         <li><a href="./tanglaw">TangLaw CLSU</a></li>
                                     </ul> 
                                 </li>                               
-                                <li><a href="./announcement.html">Announcement</a></li>
-                                <li><a href="./events.html">Events</a></li>
-                                <li><a href="./videos.html">Videos</a></li>
-                                <li><a href="./about.html">About</a></li>
-                                <li><a href="./contact.html">Contact</a></li>
+                                <li><a href="./announcement.php">Announcement</a></li>
+                                <li><a href="./events.php">Events</a></li>
+                                <li><a href="./videos.php">Videos</a></li>
+                                <li><a href="./about.php">About</a></li>
+                                <li><a href="./contact.php">Contact</a></li>
                             </ul>
                         </nav>
                     </div>

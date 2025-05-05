@@ -12,17 +12,17 @@ test('replace without loop', function() {
 
 function before_and_after_replace(options) {
 	var simple = $('#simple'),
-		replacement = simple.html(),
+		replacement = simple.php(),
 		expected = null;
 	
 	simple.owlCarousel(options);
 	
-	expected = simple.html();
+	expected = simple.php();
 	
 	simple.trigger('replace.owl.carousel', [ replacement ]);
 	simple.trigger('refresh.owl.carousel');
 	
-	equal(simple.html(), expected, 'Inner HTML before and after replace equals.');
+	equal(simple.php(), expected, 'Inner HTML before and after replace equals.');
 }
 
 test('remove with loop', function() {
@@ -55,17 +55,17 @@ function before_and_after_remove(options) {
 	simple.trigger('remove.owl.carousel', [ 0 ]);
 	simple.trigger('refresh.owl.carousel');
 	
-	equal(simple.html(), one.html(), 'Inner HTML before and after remove one equals.');
+	equal(simple.php(), one.php(), 'Inner HTML before and after remove one equals.');
 	
 	simple.trigger('remove.owl.carousel', [ 1 ]);
 	simple.trigger('refresh.owl.carousel');
 	
-	equal(simple.html(), two.html(), 'Inner HTML before and after remove two equals.');
+	equal(simple.php(), two.php(), 'Inner HTML before and after remove two equals.');
 	
 	simple.trigger('remove.owl.carousel', [ 0 ]);
 	simple.trigger('refresh.owl.carousel');
 	
-	equal(simple.html(), all.html(), 'Inner HTML before and after remove all equals.');
+	equal(simple.php(), all.php(), 'Inner HTML before and after remove all equals.');
 }
 
 test('remove and add with loop', function() {
@@ -96,7 +96,7 @@ function before_and_after_remove_add(options) {
 	simple.trigger('add.owl.carousel', [ '<li>1</li>' ]);
 	simple.trigger('refresh.owl.carousel');
 	
-	equal(simple.html(), simpleClone.html(), 'Inner HTML before and after `remove()` and `add()` equals.');
+	equal(simple.php(), simpleClone.php(), 'Inner HTML before and after `remove()` and `add()` equals.');
 }
 
 test('invalidate', function() {

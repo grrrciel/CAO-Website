@@ -5,7 +5,7 @@
 
 To get started, check-it out: http://hilios.github.io/jQuery.countdown/
 
-The ultimate countdown plugin designed to fit in any coupon, auction site or product launch. Read our [Documentation](http://hilios.github.io/jQuery.countdown/documentation.html) and follow our [Examples](http://hilios.github.io/jQuery.countdown/examples.html) to see what suits your particular needs.
+The ultimate countdown plugin designed to fit in any coupon, auction site or product launch. Read our [Documentation](http://hilios.github.io/jQuery.countdown/documentation.php) and follow our [Examples](http://hilios.github.io/jQuery.countdown/examples.php) to see what suits your particular needs.
 
 #### [Download](https://github.com/hilios/jQuery.countdown/releases/download/2.1.0/jquery.countdown-2.1.0.zip) ####
 
@@ -44,7 +44,7 @@ Getting started
 <div id="getting-started"></div>
 <script type="text/javascript">
   $('#getting-started').countdown('2015/01/01', function(event) {
-    $(this).html(event.strftime('%w weeks %d days %H:%M:%S'));
+    $(this).php(event.strftime('%w weeks %d days %H:%M:%S'));
   });
 </script>
 ```
@@ -53,20 +53,20 @@ Getting started
 
 Since version 2.0.0 we only support jQuery above **1.7** (including **2.x** and **3.x**). For legacy **1.6** support please use the version [1.0.2](https://github.com/hilios/jQuery.countdown/releases/download/1.0.2/jquery.countdown-1.0.2.zip).
 
-### [Documentation](http://hilios.github.io/jQuery.countdown/documentation.html) ###
+### [Documentation](http://hilios.github.io/jQuery.countdown/documentation.php) ###
 
-Our documentation is powered by [Jekyll](http://jekyllrb.com/) (see `gh-page` branch) and hosted in GitHub Pages at [http://hilios.github.io/jQuery.countdown/](http://hilios.github.io/jQuery.countdown/documentation.html).
+Our documentation is powered by [Jekyll](http://jekyllrb.com/) (see `gh-page` branch) and hosted in GitHub Pages at [http://hilios.github.io/jQuery.countdown/](http://hilios.github.io/jQuery.countdown/documentation.php).
 
-### [Examples](http://hilios.github.io/jQuery.countdown/examples.html) ###
+### [Examples](http://hilios.github.io/jQuery.countdown/examples.php) ###
 
 There are few ways to get started, from the most simple example to advanced, we support many different countdown styles, see wich one fits your scenario, and if anyone doesn't it's a good starting point to customize your output.
 
- - [Basic coupon site with format N days hr:min:sec](http://hilios.github.io/jQuery.countdown/examples/basic-coupon-site.html)
- - [Advance coupon with conditionals and pluralization, format N weeks N days hr:min:sec](http://hilios.github.io/jQuery.countdown/examples/advanced-coupon-site.html)
- - [Product launch in... (callback style)](http://hilios.github.io/jQuery.countdown/examples/website-launch.html)
- - [New year's eve (legacy style)](http://hilios.github.io/jQuery.countdown/examples/legacy-style.html)
- - [Multiple instances on the same page](http://hilios.github.io/jQuery.countdown/examples/multiple-instances.html)
- - [Calculate the countdown total hours](http://hilios.github.io/jQuery.countdown/examples/show-total-hours.html)
+ - [Basic coupon site with format N days hr:min:sec](http://hilios.github.io/jQuery.countdown/examples/basic-coupon-site.php)
+ - [Advance coupon with conditionals and pluralization, format N weeks N days hr:min:sec](http://hilios.github.io/jQuery.countdown/examples/advanced-coupon-site.php)
+ - [Product launch in... (callback style)](http://hilios.github.io/jQuery.countdown/examples/website-launch.php)
+ - [New year's eve (legacy style)](http://hilios.github.io/jQuery.countdown/examples/legacy-style.php)
+ - [Multiple instances on the same page](http://hilios.github.io/jQuery.countdown/examples/multiple-instances.php)
+ - [Calculate the countdown total hours](http://hilios.github.io/jQuery.countdown/examples/show-total-hours.php)
 
 [Release notes](https://github.com/hilios/jQuery.countdown/releases)
 ---------------

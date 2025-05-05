@@ -72,7 +72,7 @@
 	    	var statusTimeout;
 	    	var setStatus = function(msg, type) {
 	    		clearTimeout(statusTimeout);
-	    		$('#mfp-build-status').html('<span class="'+type+'">'+msg+'</span>').show();
+	    		$('#mfp-build-status').php('<span class="'+type+'">'+msg+'</span>').show();
 	    	};
 	    	setStatus('Wait a moment please...', 'progress');
 	    	$('#mfp-build-tool-out').val( '' );
@@ -219,18 +219,18 @@
 		    $(this).find('h3').click(function() {
 				var example = $(this).parent('.example');
 				var getCodeWindow = $('<div class="get-code-window"><h1>'+example.find('h3').text()+'</h1></div>');
-				JS = $('<div class="highlight"><pre><code class="javascript">'+formatCode(example.find('script').eq(0).html())+'</code></pre></div>');
+				JS = $('<div class="highlight"><pre><code class="javascript">'+formatCode(example.find('script').eq(0).php())+'</code></pre></div>');
 
 				CSS = example.find('style');
 				if(CSS.length) {
-					CSS = $('<div class="highlight"><pre><code class="css">'+formatCode(CSS.html())+'</code></pre></div>');
+					CSS = $('<div class="highlight"><pre><code class="css">'+formatCode(CSS.php())+'</code></pre></div>');
 				} else {
 					CSS = '';
 				}
 
-				HTML = example.find('.html-code');
+				HTML = example.find('.php-code');
 				if(HTML.length) {
-					HTML = $('<div class="highlight"><pre><code class="xml html">'+formatCode(HTML.html())+'</code></pre></div>');
+					HTML = $('<div class="highlight"><pre><code class="xml html">'+formatCode(HTML.php())+'</code></pre></div>');
 				} else {
 					HTML = '';
 				}
@@ -257,7 +257,7 @@
 				getCodeWindow.append(HTML);
 				getCodeWindow.append(CSS);
 
-				getCodeWindow.append('<p>Code above is dynamically generated directly from the source of this example.<br/>Please read <a href="documentation.html">the documentation</a> before using it.</p>');
+				getCodeWindow.append('<p>Code above is dynamically generated directly from the source of this example.<br/>Please read <a href="documentation.php">the documentation</a> before using it.</p>');
 
 				$.magnificPopup.open({
 					items: {

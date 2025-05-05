@@ -25,7 +25,7 @@
 		"./dist/jplayer/jquery.jplayer.js",
 		"./dist/jplayer/jquery.jplayer.swf",
 		"./dist/skin/pink.flag/jplayer.pink.flag.css",
-		"./dist/skin/pink.flag/mustache/jplayer.pink.flag.audio.single.html"
+		"./dist/skin/pink.flag/mustache/jplayer.pink.flag.audio.single.php"
 	],
 	"ignore": [
 		"artwork",

@@ -291,7 +291,7 @@ line-height: 13px;
 }
 
 
-code.html:before {
+code.php:before {
 content: 'HTML';
 }
 code.javascript:before {

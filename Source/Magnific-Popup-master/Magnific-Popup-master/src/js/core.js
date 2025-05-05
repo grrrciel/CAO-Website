@@ -676,7 +676,7 @@ MagnificPopup.prototype = {
 			status = data.status;
 			text = data.text;
 
-			mfp.preloader.html(text);
+			mfp.preloader.php(text);
 
 			mfp.preloader.find('a').on('click', function(e) {
 				e.stopImmediatePropagation();
@@ -779,7 +779,7 @@ MagnificPopup.prototype = {
 				}
 
 			} else {
-				template.find(EVENT_NS + '-'+key).html(value);
+				template.find(EVENT_NS + '-'+key).php(value);
 			}
 		});
 	},
@@ -838,7 +838,7 @@ $.magnificPopup = {
 	defaults: {
 
 		// Info about options is in docs:
-		// http://dimsemenov.com/plugins/magnific-popup/documentation.html#options
+		// http://dimsemenov.com/plugins/magnific-popup/documentation.php#options
 
 		disableOn: 0,
 

@@ -16,8 +16,8 @@
     "url": "http://edson.hilios.com.br"
   },
   "homepage": "http://hilios.github.io/jQuery.countdown/",
-  "docs": "http://hilios.github.io/jQuery.countdown/documentation.html",
-  "demo": "http://hilios.github.io/jQuery.countdown/examples.html",
+  "docs": "http://hilios.github.io/jQuery.countdown/documentation.php",
+  "demo": "http://hilios.github.io/jQuery.countdown/examples.php",
   "bugs": "https://github.com/hilios/jQuery.countdown/issues",
   "download": "https://github.com/hilios/jQuery.countdown/releases/download/2.0.4/jquery.countdown-2.0.4.zip",
   "licenses": [

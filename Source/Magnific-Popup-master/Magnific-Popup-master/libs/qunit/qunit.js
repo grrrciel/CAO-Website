@@ -756,7 +756,7 @@ if ( typeof exports === "undefined" ) {
 		for ( i = 0; i < length; i++ ) {
 			current = params[ i ].split( "=" );
 			current[ 0 ] = decodeURIComponent( current[ 0 ] );
-			// allow just a key to turn on a flag, e.g., test.html?noglobals
+			// allow just a key to turn on a flag, e.g., test.php?noglobals
 			current[ 1 ] = current[ 1 ] ? decodeURIComponent( current[ 1 ] ) : true;
 			urlParams[ current[ 0 ] ] = current[ 1 ];
 		}
@@ -1011,7 +1011,7 @@ extend( QUnit, {
 extend( QUnit.constructor.prototype, {
 
 	// Logging callbacks; all receive a single argument with the listed properties
-	// run test/logs.html for any related changes
+	// run test/logs.php for any related changes
 	begin: registerLoggingCallback( "begin" ),
 
 	// done: { failed, passed, total, runtime }
@@ -1757,7 +1757,7 @@ QUnit.equiv = (function() {
  * @projectDescription Advanced and extensible data dumping for Javascript.
  * @version 1.0.0
  * @author Ariel Flesler
- * @link {http://flesler.blogspot.com/2008/05/jsdump-pretty-dump-of-any-javascript.html}
+ * @link {http://flesler.blogspot.com/2008/05/jsdump-pretty-dump-of-any-javascript.php}
  */
 QUnit.jsDump = (function() {
 	function quote( str ) {
@@ -1843,7 +1843,7 @@ QUnit.jsDump = (function() {
 				return type;
 			},
 			separator: function() {
-				return this.multiline ?	this.HTML ? "<br />" : "\n" : this.HTML ? "&nbsp;" : " ";
+				return this.multiline ?	this.php ? "<br />" : "\n" : this.php ? "&nbsp;" : " ";
 			},
 			// extra can be a number, shortcut for increasing-calling-decreasing
 			indent: function( extra ) {
@@ -1851,7 +1851,7 @@ QUnit.jsDump = (function() {
 					return "";
 				}
 				var chr = this.indentChar;
-				if ( this.HTML ) {
+				if ( this.php ) {
 					chr = chr.replace( /\t/g, "   " ).replace( / /g, "&nbsp;" );
 				}
 				return new Array( this._depth_ + (extra||0) ).join(chr);
@@ -1915,8 +1915,8 @@ QUnit.jsDump = (function() {
 				},
 				node: function( node ) {
 					var len, i, val,
-						open = QUnit.jsDump.HTML ? "&lt;" : "<",
-						close = QUnit.jsDump.HTML ? "&gt;" : ">",
+						open = QUnit.jsDump.php ? "&lt;" : "<",
+						close = QUnit.jsDump.php ? "&gt;" : ">",
 						tag = node.nodeName.toLowerCase(),
 						ret = open + tag,
 						attrs = node.attributes;

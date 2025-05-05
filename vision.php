@@ -41,10 +41,10 @@
 <!-- Logo Container -->
 <div class="header__logos">
     <div class="header__logo">
-        <a href="./index.html"><img src="img/clsulogo.png" alt="CLSULogo"></a>
+        <a href="./index.php"><img src="img/clsulogo.png" alt="CLSULogo"></a>
     </div>
     <div class="header__logo">
-        <a href="./index.html"><img src="img/logo.png" alt="MainLogo"></a>
+        <a href="./index.php"><img src="img/logo.png" alt="MainLogo"></a>
     </div>
 </div>
 
@@ -53,32 +53,32 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li class="active"><a href="./index.php">Home</a></li>
                                 <li><a href="#">Performing Groups</a>
                                     <ul class="dropdown">
-                                        <li><a href="./band.html">CLSU Band</a></li>
-                                        <li><a href="./bithay.html">CLSU Bithay</a></li>
-                                        <li><a href="./combo.html">CLSU Combo</a></li>
-                                        <li><a href="./maestro.html">CLSU Maestro</a></li>
-                                        <li><a href="./pigura.html">CLSU Pigura</a></li>
-                                        <li><a href="./tanglaw.html">TangLaw CLSU</a></li>
+                                        <li><a href="./band.php">CLSU Band</a></li>
+                                        <li><a href="./bithay.php">CLSU Bithay</a></li>
+                                        <li><a href="./combo.php">CLSU Combo</a></li>
+                                        <li><a href="./maestro.php">CLSU Maestro</a></li>
+                                        <li><a href="./pigura.php">CLSU Pigura</a></li>
+                                        <li><a href="./tanglaw.php">TangLaw CLSU</a></li>
                                     </ul> 
                                 </li>                               
-                                <li><a href="./announcement.html">Announcement</a></li>
-                                <li><a href="./events.html">Events</a></li>
-                                <li><a href="./videos.html">Videos</a></li>
+                                <li><a href="./announcement.php">Announcement</a></li>
+                                <li><a href="./events.php">Events</a></li>
+                                <li><a href="./videos.php">Videos</a></li>
                                 <li><a href="#">About</a>
                                     <ul class="dropdown">
-                                        <li><a href="./mission.html">Mission</a></li>
-                                        <li><a href="./vision.html">Vision</a></li>
-                                        <li><a href="./philo.html">Philosophy</a></li>
-                                        <li><a href="./obj.html">Objectives</a></li>
-                                        <li><a href="./qps.html">Quality Policy Statements</a></li>
-                                        <li><a href="./oc.html">Oragnizational Chart</a></li>
-                                        <li><a href="./dl.html">Downloadables</a></li>
+                                        <li><a href="./mission.php">Mission</a></li>
+                                        <li><a href="./vision.php">Vision</a></li>
+                                        <li><a href="./philo.php">Philosophy</a></li>
+                                        <li><a href="./obj.php">Objectives</a></li>
+                                        <li><a href="./qps.php">Quality Policy Statements</a></li>
+                                        <li><a href="./oc.php">Oragnizational Chart</a></li>
+                                        <li><a href="./dl.php">Downloadables</a></li>
                                     </ul> 
 
-                                <li><a href="./contact.html">Contact</a></li>
+                                <li><a href="./contact.php">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
